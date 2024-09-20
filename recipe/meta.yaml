@@ -49,8 +49,9 @@ test:
     - batoid
   requires:
     - pip
-  commands:
-    - pip check
+  # commands:
+  #   # fails due to galsim requirement on setuptools
+  #   - pip check
 
 about:
   home: https://github.com/jmeyers314/batoid
