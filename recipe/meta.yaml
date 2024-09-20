@@ -31,6 +31,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - pybind11
     - numpy
     - pytest-runner
