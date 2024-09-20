@@ -34,6 +34,7 @@ requirements:
     - pybind11
     - numpy
     - pytest-runner
+    - setuptools
   run:
     - python
     - pyyaml
