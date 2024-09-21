@@ -11,7 +11,7 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 3
   skip: true  # [win]
   skip: true  # [py==38]
 
@@ -38,7 +38,6 @@ requirements:
   run:
     - python
     - pyyaml
-    - {{ pin_compatible('numpy') }}
     - scipy
     - galsim
     - matplotlib-base
