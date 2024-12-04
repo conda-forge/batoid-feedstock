@@ -11,7 +11,7 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 4
   skip: true  # [win]
   skip: true  # [py==38]
 
@@ -41,7 +41,7 @@ requirements:
     - scipy
     - galsim
     - matplotlib-base
-    - astropy
+    - astropy-base
 
 test:
   imports:
