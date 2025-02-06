@@ -1,5 +1,5 @@
 {% set name = "batoid" %}
-{% set version = "0.7.3" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bdab492dd3fa3f2cbb1cdcc4d3357a3095bdecc4b2ee5dca33a5f4146bdd762a
+  sha256: 37de7605e0699c63fe46cc07bd536ee8cc7e65d92fc2722f7ce69d1e7c4ca0d8
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 4
+  number: 0
   skip: true  # [win]
   skip: true  # [py==38]
 
