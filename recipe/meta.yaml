@@ -1,13 +1,13 @@
 {% set name = "batoid" %}
-{% set version = "0.8.1" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a95ce55d65d1955579f2765bce576e399d28e73b59b45f33f24db40fb8a2c96a
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 828984b11a76c24bb4cfbef8aae8930aad50a60af9389de1782d082a1eb1213d
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
