@@ -60,9 +60,6 @@ tests:
       imports:
         - batoid
       pip_check: false
-  - requirements:
-      run:
-        - pip
 
 about:
   summary: c++ backed python optical raytracer
