@@ -1,0 +1,76 @@
+schema_version: 1
+
+context:
+  name: batoid
+  version: "0.9.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 828984b11a76c24bb4cfbef8aae8930aad50a60af9389de1782d082a1eb1213d
+
+build:
+  number: 3
+  skip: win
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: numpy
+    - if: build_platform != target_platform
+      then: pybind11
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+    - cmake
+    - make
+    - if: not linux
+      then: llvm-openmp
+    - if: linux
+      then: libgomp
+  host:
+    - python
+    - pip
+    - setuptools
+    - pybind11
+    - numpy
+    - pytest-runner
+    - if: not linux
+      then: llvm-openmp
+    - if: linux
+      then: libgomp
+  run:
+    - python
+    - pyyaml
+    - scipy
+    - galsim
+    - matplotlib-base
+    - astropy-base
+
+tests:
+  - python:
+      imports:
+        - batoid
+      pip_check: false
+  - requirements:
+      run:
+        - pip
+
+about:
+  summary: c++ backed python optical raytracer
+  license: BSD-2-Clause
+  license_file: LICENSE
+  homepage: https://github.com/jmeyers314/batoid
+
+extra:
+  recipe-maintainers:
+    - beckermr
+    - jmeyers314
