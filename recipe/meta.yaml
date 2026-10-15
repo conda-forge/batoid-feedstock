@@ -26,7 +26,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-    - llvm-openmp  # [osx]
+    - llvm-openmp  # [not linux]
     - libgomp      # [linux]
   host:
     - python
@@ -35,6 +35,8 @@ requirements:
     - pybind11
     - numpy
     - pytest-runner
+    - llvm-openmp  # [not linux]
+    - libgomp      # [linux]
   run:
     - python
     - pyyaml
